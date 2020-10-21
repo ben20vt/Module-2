@@ -29,39 +29,115 @@ elseif dec == 2
     disp("The Change in Average National Temperature between " + yearforavg1 + " and " + yearforavg2 + " is " + nationalchange + " degrees celsius");
     disp("The Change in Average State Temperature between " + yearforavg1 + " and " + yearforavg2 + " is " + statechange + " degrees celsius");
 elseif dec ==3
-    figure(1)
-    globaltemps = readtable("global-climate-data.csv"); 
-    Time1 = globaltemps.Var1;  
-    Temp1 = globaltemps.Var2; 
-    plot(Time1, Temp1, 'x');  
-    BestFit = fit(Time1, Temp1, 'poly1'); 
-    hold on    
-    plot(BestFit) 
-    title('Global Climate Data');  
-    xlabel('Year');    
-    ylabel('Temperature');  
-    figure(2)
-    nationaltemps = readtable("national-climate-data.csv"); 
-    Time2 = nationaltemps.Var1;  
-    Temp2 = nationaltemps.Var2; 
-    plot(Time2, Temp2, 'x');  
-    BestFit = fit(Time2, Temp2, 'poly1'); 
-    hold on    
-    plot(BestFit) 
-    title('National Climate Data');  
-    xlabel('Year');    
-    ylabel('Temperature');  
-    figure(3)
-    statetemps = readtable("state-climate-data.csv"); 
-    Time3 = statetemps.Var1;  
-    Temp3 = statetemps.Var2; 
-    plot(Time3, Temp3, 'x');  
-    BestFit = fit(Time3, Temp3, 'poly1'); 
-    hold on    
-    plot(BestFit) 
-    title('State Climate Data');  
-    xlabel('Year');    
-    ylabel('Temperature');  
+    disp('Please choose what information you would like to graph:' );
+    disp('1: The average temperature for a given year at the global level ');
+    disp('2: The average temperature for a given year at the national level ');
+    disp('3: The average temperature for a given year at the state level ');
+    disp('4: The average temperature for a given year at all levels on separate graphs ');
+    disp('5: The average temperature for a given year at all levels on one graph ');
+    graphdec = input('What information would you like to display? Please enter a choice from 1-4: ');
+    if graphdec == 1
+        globaltemps = readtable("global-climate-data.csv"); 
+        Time1 = globaltemps.Var1;  
+        Temp1 = globaltemps.Var2; 
+        plot(Time1, Temp1, 'x');  
+        BestFit = fit(Time1, Temp1, 'poly1'); 
+        hold on    
+        plot(BestFit) 
+        title('Global Climate Data');  
+        xlabel('Year');    
+        ylabel('Temperature'); 
+     if graphdec == 2
+        nationaltemps = readtable("national-climate-data.csv"); 
+        Time2 = nationaltemps.Var1;  
+        Temp2 = nationaltemps.Var2; 
+        plot(Time2, Temp2, 'x');  
+        BestFit = fit(Time2, Temp2, 'poly1'); 
+        hold on    
+        plot(BestFit) 
+        title('National Climate Data');  
+        xlabel('Year');    
+        ylabel('Temperature');  
+     if graphdec == 3
+        statetemps = readtable("state-climate-data.csv"); 
+        Time3 = statetemps.Var1;  
+        Temp3 = statetemps.Var2; 
+        plot(Time3, Temp3, 'x');  
+        BestFit = fit(Time3, Temp3, 'poly1'); 
+        hold on    
+        plot(BestFit) 
+        title('State Climate Data');  
+        xlabel('Year');    
+        ylabel('Temperature');   
+     if graphdec == 4
+         figure(1)
+         globaltemps = readtable("global-climate-data.csv"); 
+         Time1 = globaltemps.Var1;  
+         Temp1 = globaltemps.Var2; 
+         plot(Time1, Temp1, 'x');  
+         BestFit = fit(Time1, Temp1, 'poly1'); 
+         hold on    
+         plot(BestFit) 
+         title('Global Climate Data');  
+         xlabel('Year');    
+         ylabel('Temperature');  
+         figure(2)
+         nationaltemps = readtable("national-climate-data.csv"); 
+         Time2 = nationaltemps.Var1;  
+         Temp2 = nationaltemps.Var2; 
+         plot(Time2, Temp2, 'x');  
+         BestFit = fit(Time2, Temp2, 'poly1'); 
+         hold on    
+         plot(BestFit) 
+         title('National Climate Data');  
+         xlabel('Year');    
+         ylabel('Temperature');  
+         figure(3)
+         statetemps = readtable("state-climate-data.csv"); 
+         Time3 = statetemps.Var1;  
+         Temp3 = statetemps.Var2; 
+         plot(Time3, Temp3, 'x');  
+         BestFit = fit(Time3, Temp3, 'poly1'); 
+         hold on    
+         plot(BestFit) 
+         title('State Climate Data');  
+         xlabel('Year');    
+         ylabel('Temperature');  
+     if graphdec == 5
+        %global graph
+        globaltemps = readtable("global-climate-data.csv"); 
+        Time1 = globaltemps.Var1;  
+        Temp1 = globaltemps.Var2; 
+        plot(Time1, Temp1, 'x');  
+        BestFit = fit(Time1, Temp1, 'poly1'); 
+        hold on    
+        plot(BestFit) 
+        title('Global Climate Data');  
+        xlabel('Year');    
+        ylabel('Temperature');  
+        %national graph
+        nationaltemps = readtable("national-climate-data.csv"); 
+        Time2 = nationaltemps.Var1;  
+        Temp2 = nationaltemps.Var2; 
+        plot(Time2, Temp2, 'x');  
+        BestFit = fit(Time2, Temp2, 'poly1'); 
+        hold on    
+        plot(BestFit) 
+        title('National Climate Data');  
+        xlabel('Year');    
+        ylabel('Temperature');  
+        %state graph
+        statetemps = readtable("state-climate-data.csv"); 
+        Time3 = statetemps.Var1;  
+        Temp3 = statetemps.Var2; 
+        plot(Time3, Temp3, 'x');  
+        BestFit = fit(Time3, Temp3, 'poly1'); 
+        hold on    
+        plot(BestFit) 
+        title('State Climate Data');  
+        xlabel('Year');    
+        ylabel('Temperature');  
+     end
 end
 
 
