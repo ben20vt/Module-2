@@ -2,6 +2,7 @@ clear
 clc
 Response = 1;
 while Response ~= 0
+    close all
     clear
     clc
     disp('Please choose what information you would like to display:' );
