@@ -11,9 +11,9 @@ if dec == 1
     statetemps = readtable("state-climate-data.csv");
     yearforavg = input('Year (1895-2019): ');
     numforavg = (yearforavg-1894);
-    disp("The Average Global Temperature in " + yearforavg + " was " + globaltemps.Var2(numforavg) + " degrees celsius");
-    disp("The Average National Temperature in " + yearforavg + " was " + nationaltemps.Var2(numforavg) + " degrees celsius");
-    disp("The Average State Temperature in " + yearforavg + " was " + statetemps.Var2(numforavg) + " degrees celsius");
+    disp("The Average Global Temperature in " + yearforavg + " was " + globaltemps.Var2(numforavg) + "°C");
+    disp("The Average National Temperature in " + yearforavg + " was " + nationaltemps.Var2(numforavg) + "°C");
+    disp("The Average State Temperature in " + yearforavg + " was " + statetemps.Var2(numforavg) + "°C");
 elseif dec == 2
     globaltemps = readtable("global-climate-data.csv");
     nationaltemps = readtable("national-climate-data.csv");
@@ -25,9 +25,9 @@ elseif dec == 2
     globalchange = (globaltemps.Var2(numforavg2)-globaltemps.Var2(numforavg1));
     nationalchange = (nationaltemps.Var2(numforavg2)-nationaltemps.Var2(numforavg1));
     statechange = (statetemps.Var2(numforavg2)-statetemps.Var2(numforavg1));
-    disp("The Change in Average Global Temperature between " + yearforavg1 + " and " + yearforavg2 + " is " + globalchange + " degrees celsius");
-    disp("The Change in Average National Temperature between " + yearforavg1 + " and " + yearforavg2 + " is " + nationalchange + " degrees celsius");
-    disp("The Change in Average State Temperature between " + yearforavg1 + " and " + yearforavg2 + " is " + statechange + " degrees celsius");
+    disp("The Change in Average Global Temperature between " + yearforavg1 + " and " + yearforavg2 + " is " + globalchange + "°C");
+    disp("The Change in Average National Temperature between " + yearforavg1 + " and " + yearforavg2 + " is " + nationalchange + "°C");
+    disp("The Change in Average State Temperature between " + yearforavg1 + " and " + yearforavg2 + " is " + statechange + "°C");
 elseif dec == 3
     disp('Please choose what information you would like to graph:' );
     disp('1: The average temperature for a given year at the global level ');
@@ -47,7 +47,9 @@ elseif dec == 3
             plot(BestFit)
             title('Global Climate Data');
             xlabel('Year');
-            ylabel('Temperature');
+            ylabel('Temperature (°C)');
+            legend('Global Temperature Data', 'Global Temperature Trendline');
+            legend('Location','best')
         elseif graphdec == 2
             figure(2);
             nationaltemps = readtable("national-climate-data.csv");
@@ -59,9 +61,11 @@ elseif dec == 3
             plot(BestFit)
             title('National Climate Data');
             xlabel('Year');
-            ylabel('Temperature');
+            ylabel('Temperature (°C)');
+            legend('National Temperature Data', 'National Temperature Trendline');
+            legend('Location','best')
         elseif graphdec == 3
-            figure(3);
+            figure( 3);
             statetemps = readtable("state-climate-data.csv");
             Time3 = statetemps.Var1;
             Temp3 = statetemps.Var2;
@@ -71,7 +75,9 @@ elseif dec == 3
             plot(BestFit)
             title('State Climate Data');
             xlabel('Year');
-            ylabel('Temperature');
+            ylabel('Temperature (°C)');
+            legend('State Temperature Data',  'State Temperature Trendline');
+            legend('Location','best')
         elseif graphdec == 4
             figure(4)
             globaltemps = readtable("global-climate-data.csv");
@@ -83,7 +89,9 @@ elseif dec == 3
             plot(BestFit)
             title('Global Climate Data');
             xlabel('Year');
-            ylabel('Temperature');
+            ylabel('Temperature (°C)');
+            legend('Global Temperature Data', 'Global Temperature Trendline');
+            legend('Location','best')
             figure(5)
             nationaltemps = readtable("national-climate-data.csv");
             Time2 = nationaltemps.Var1;
@@ -94,7 +102,9 @@ elseif dec == 3
             plot(BestFit)
             title('National Climate Data');
             xlabel('Year');
-            ylabel('Temperature');
+            ylabel('Temperature (°C)');
+            legend('National Temperature Data', 'National Temperature Trendline');
+            legend('Location','best')
             figure(6)
             statetemps = readtable("state-climate-data.csv");
             Time3 = statetemps.Var1;
@@ -105,8 +115,11 @@ elseif dec == 3
             plot(BestFit)
             title('State Climate Data');
             xlabel('Year');
-            ylabel('Temperature');
+            ylabel('Temperature (°C');
+            legend('State Temperature Data', 'State Temperature Trendline');
+            legend('Location','best')
         elseif graphdec == 5
+            figure(7)
             %global graph
             globaltemps = readtable("global-climate-data.csv");
             Time1 = globaltemps.Var1;
@@ -133,7 +146,9 @@ elseif dec == 3
             plot(BestFit)
             title('Climate Data');
             xlabel('Year');
-            ylabel('Temperature');
+            ylabel('Temperature (°C)');
+            legend('Global Temperature Data', 'Global Temperature Trendline', 'National Temperature Data',  'National Temperature Trendline', 'State Temperature Data', 'State Temperature Trendline');
+            legend('Location','best')
         end
 end
 
